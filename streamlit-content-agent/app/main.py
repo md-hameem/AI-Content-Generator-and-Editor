@@ -49,7 +49,7 @@ st.title("📝 AI Content Generator + Editor")
 # Session state defaults
 # -----------------------------
 # Make Ollama the default provider
-st.session_state.setdefault("provider", "ollama")  # <-- default is ollama per your request
+st.session_state.setdefault("provider", "ollama")  # <-- default is ollama
 st.session_state.setdefault("model", "gpt-4o-mini")  # only used for OpenAI
 st.session_state.setdefault("outline", "")
 st.session_state.setdefault("draft", "")
