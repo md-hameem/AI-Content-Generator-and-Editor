@@ -1,5 +1,10 @@
-streamlit>=1.33
-openai>=1.30
+loguru>=0.7
+ruff>=0.5
+black>=24.4
+mypy>=1.10
+pre-commit>=3.7
+markdown2>=2.4
+pdfkit>=1.0
 python-dotenv>=1.0
 requests>=2.31
-markdown2>=2.4
+streamlit>=1.33
