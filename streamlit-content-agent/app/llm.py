@@ -54,7 +54,7 @@ class LLMClient:
         r = requests.post(
             f"{self.cfg.ollama_base_url}/api/generate",
             json={"model": model, "prompt": prompt, "stream": False, "options": {"temperature": temperature}},
-            timeout=120,
+            timeout=990,
         )
         r.raise_for_status()
         data = r.json()
