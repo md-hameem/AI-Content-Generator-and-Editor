@@ -57,7 +57,7 @@ logger.add(
     format="<green>{time:YYYY-MM-DD HH:mm:ss}</green> | {level} | {message}",
 )
 
-st.title("📝 AI Content Generator + Editor")
+st.title("📝 AI Content Generator + Editor Agent")
 
 # -----------------------------
 # Session state defaults
@@ -73,10 +73,13 @@ st.session_state.setdefault("seo_meta", {"Title": "", "Description": "", "Slug":
 # Sidebar controls
 # -----------------------------
 with st.sidebar:
-    st.image(
-        "https://dummyimage.com/300x80/111827/ffffff&text=Your+Brand",
-        use_container_width=True,
-        caption="(Replace with your logo image or a local file path.)",
+    st.markdown(
+        """
+        # Mohammad Hamim
+        
+        [LinkedIn](https://www.linkedin.com/in/md-hameem/)
+        """,
+        unsafe_allow_html=True
     )
     st.header("⚙️ Settings")
 
@@ -263,7 +266,7 @@ with col_pdf:
                 # If wkhtmltopdf isn't on PATH, configure like:
                 config = pdfkit.configuration(wkhtmltopdf=r"C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe")
                 pdf_bytes = pdfkit.from_string(html, False, configuration=config)
-                pdf_bytes = pdfkit.from_string(html, False)
+                # pdf_bytes = pdfkit.from_string(html, False)
                 st.download_button(
                     "Download PDF",
                     data=pdf_bytes,
