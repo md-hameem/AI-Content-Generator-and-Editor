@@ -4,6 +4,20 @@ from __future__ import annotations
 import os
 import re
 from typing import Dict, List
+import sys 
+import pdfkit
+
+# ADDED
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from app.llm import LLMClient, LLMConfig
+from app.prompts import (
+    outline_prompt,
+    draft_prompt,
+    improve_prompt,
+    seo_meta_prompt,
+)
+from app.seo import seo_checklist, slugify
 
 import streamlit as st
 from dotenv import load_dotenv
@@ -247,8 +261,8 @@ with col_pdf:
             try:
                 html = markdown2.markdown(md_export)
                 # If wkhtmltopdf isn't on PATH, configure like:
-                # config = pdfkit.configuration(wkhtmltopdf="/full/path/to/wkhtmltopdf")
-                # pdf_bytes = pdfkit.from_string(html, False, configuration=config)
+                config = pdfkit.configuration(wkhtmltopdf=r"C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe")
+                pdf_bytes = pdfkit.from_string(html, False, configuration=config)
                 pdf_bytes = pdfkit.from_string(html, False)
                 st.download_button(
                     "Download PDF",
