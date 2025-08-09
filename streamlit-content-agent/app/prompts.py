@@ -1,5 +1,9 @@
+# app/prompts.py
+from __future__ import annotations
+
 import textwrap
 from typing import List
+
 
 def outline_prompt(topic: str, audience: str, tone: str, keywords: List[str]) -> str:
     return textwrap.dedent(f"""
@@ -10,6 +14,7 @@ def outline_prompt(topic: str, audience: str, tone: str, keywords: List[str]) ->
     Include bullet talking points under each heading.
     Integrate keywords naturally: {", ".join(keywords)}.
     """)
+
 
 def draft_prompt(outline: str, tone: str, audience: str, target_words: int, keywords: List[str]) -> str:
     return textwrap.dedent(f"""
@@ -25,6 +30,7 @@ def draft_prompt(outline: str, tone: str, audience: str, target_words: int, keyw
     Return valid Markdown only.
     """)
 
+
 def improve_prompt(draft: str, keywords: List[str], style_note: str = "clarity, concision, active voice") -> str:
     return textwrap.dedent(f"""
     Improve the following draft for {style_note}. Keep structure and facts.
@@ -33,6 +39,7 @@ def improve_prompt(draft: str, keywords: List[str], style_note: str = "clarity, 
     ---
     {draft}
     """)
+
 
 def seo_meta_prompt(draft: str, keywords: List[str]) -> str:
     return textwrap.dedent(f"""
