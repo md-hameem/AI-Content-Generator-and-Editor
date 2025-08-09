@@ -7,7 +7,7 @@ import requests
 
 @dataclass
 class LLMConfig:
-    provider: str = "openai"  # "openai" or "ollama"
+    provider: str = "ollama"  # "openai" or "ollama"
     model: str = "gpt-4o-mini"
     temperature: float = 0.5
     openai_api_key: Optional[str] = None
